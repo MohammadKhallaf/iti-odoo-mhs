@@ -22,17 +22,17 @@ ___
 
 - [ ]  The user group has the following access rights:
     - [x]  Can create/read/update his own patients records
-    - [ ]  Can read only departments
-    - [ ]  Can read only doctors
-    - [ ]  Can't view doctor fields in patients' form view
-    - [ ]  Can't view doctors' menu item
+    - [x]  Can read only departments
+    - [x]  Can read only doctors
+    - [x]  Can't view doctor fields in patients' form view
+    - [x]  Can't view doctors' menu item
    
 - [ ]  The Manager group has the following access rights:
-    - [ ]  Can create/read/update/delete all patients records
-    - [ ]  Can create/read/update/delete departments
-    - [ ]  Can create/read/update/delete doctors
-    - [ ]  Can view doctor fields in patients form view
-    - [ ]  Can view doctors menu item
+    - [x]  Can create/read/update/delete all patients records
+    - [x]  Can create/read/update/delete departments
+    - [x]  Can create/read/update/delete doctors
+    - [x]  Can view doctor fields in patients form view
+    - [x]  Can view doctors' menu item
    
 - [ ]  Create a patients report like the following design:
 - ![img.png](img.png)

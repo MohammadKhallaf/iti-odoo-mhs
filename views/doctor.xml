@@ -54,7 +54,8 @@
                   name="Doctors"
                   action="doctor_action"
                   parent="hospital_doctor_root"
-                  sequence="1"/>
+                  sequence="1"
+                  groups="hms_manager_group"/>
     </data>
 
 </odoo>

@@ -49,7 +49,7 @@
                                 <field name="department_cap"/>
                                 <field name="department_id" domain="[('is_opened','=',True)]"/>
                                 <field name="customer_id" />
-                                <field name="doctors_ids" widget="many2many_tags"/>
+                                <field name="doctors_ids" widget="many2many_tags" groups="hms.hms_manager_group"/>
                                 <field name="cr_ratio" attrs="{'required':[('pcr','=',True)]}"/>
                                 <field name="blood_type"/>
                                 <field name="pcr"/>

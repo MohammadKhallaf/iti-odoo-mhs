@@ -11,7 +11,7 @@ and show this field inside Misc group within sales and purchase tab
 class HospitalCustomer(models.Model):
     _inherit = "res.partner"
 
-    related_patient_id = fields.One2many(comodel_name='hms.patient', inverse_name="department_id")
+    related_patient_id = fields.One2many(comodel_name='hms.patient', inverse_name="customer_id")
     patient_email = fields.Char(related="related_patient_id.email")
 
     @api.constrains('email')

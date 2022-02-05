@@ -25,17 +25,18 @@
 
     <!--        Rules -->
     <data>
-                <record id="user_own_patient" model="ir.rule">
-                    <field name="name">User Patients</field>
-                    <field ref="model_hms_patient" name="model_id"/>
-                    <field name="domain_force">[('create_uid','=',user.id)]</field>
-                    <field name="groups" eval="[(4, ref('hms_user_group'))]"/>
-                </record>
+        <!--    user can operate on his own patients    -->
+        <record id="user_own_patient" model="ir.rule">
+            <field name="name">User Patients</field>
+            <field ref="model_hms_patient" name="model_id"/>
+            <field name="domain_force">[('create_uid','=',user.id)]</field>
+            <field name="groups" eval="[(4, ref('hms_user_group'))]"/>
+        </record>
 
-        <record id="maneger_rule_all" model="ir.rule">
+        <record id="manager_rule_all" model="ir.rule">
             <field name="name">Manager All Records</field>
             <field ref="model_hms_patient" name="model_id"/>
-            <field name="domain_force">[('1','=',1)]</field>
+            <field name="domain_force">[(1, '=', 1)]</field>
             <field name="groups" eval="[(4, ref('hms_manager_group'))]"/>
         </record>
     </data>

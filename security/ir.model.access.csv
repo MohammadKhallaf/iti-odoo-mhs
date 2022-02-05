@@ -5,5 +5,6 @@ access_department_user,access.department.user,model_hms_department,hms_user_grou
 access_doctor_user,access.doctor.user,model_hms_doctor,hms_user_group,1,0,0,0
 access_doctor_user_menu_item,access.doctor.user.view,model_hms_doctor,hms_user_group,0,0,0,0
 ,,,,,,,
-access_patient_manager,access.patient.manager,model_hms_patient,hms_user_group,1,1,1,1
+access_patient_manager,access.patient.manager,model_hms_patient,hms_manager_group,1,1,1,1
 access_department_manager,access.patient.manager,model_hms_department,hms_manager_group,1,1,1,1
+access_doctor_manager,access.doctor.manager,model_hms_doctor,hms_manager_group,1,1,1,1

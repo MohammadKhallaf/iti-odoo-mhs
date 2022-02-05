@@ -38,12 +38,13 @@ class HospitalPatient(models.Model):
 
     @api.depends('birthdate')
     def _compute_age(self):
-        for item in self:
-            if item.birthdate > date.today():
-                raise UserError("Birthdate Incorrect!")
-            item.age = date.today().year - item.birthdate.year
-            if item.age > 30:
-                item.pcr = True
+        if self.birthdate:
+            for item in self:
+                if item.birthdate > date.today():
+                    raise UserError("Birthdate Incorrect!")
+                item.age = date.today().year - item.birthdate.year
+                if item.age > 30:
+                    item.pcr = True
 
     # valid and unique
     email = fields.Char(string="Email")
@@ -74,7 +75,7 @@ class HospitalPatient(models.Model):
     address = fields.Text(string="Address")
 
     department_id = fields.Many2one(comodel_name='hms.department')
-    customer_id = fields.Many2one(comodel_name='res.partner') # to link it to the customer model
+    customer_id = fields.Many2one(comodel_name='res.partner')  # to link it to the customer model
     doctors_ids = fields.Many2many("hms.doctor")
     department_cap = fields.Integer(string="Department Capacity", related="department_id.capacity")
     log_ids = fields.One2many(comodel_name='hms.logs', inverse_name="patient_id")

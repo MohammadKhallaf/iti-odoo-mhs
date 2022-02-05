@@ -13,3 +13,26 @@
 - [x]  Prevent users to delete any customer linked to a patient
 - [x] Show website field in the list view for customers
 - [x]  Make the Tax ID field mandatory for CRM Customers
+___
+
+### Lab 4
+#### Continue with our previously created module "hms":
+
+- [x]  Create two new user groups (user , manager)
+
+- [ ]  The user group has the following access rights:
+    - [x]  Can create/read/update his own patients records
+    - [ ]  Can read only departments
+    - [ ]  Can read only doctors
+    - [ ]  Can't view doctor fields in patients' form view
+    - [ ]  Can't view doctors' menu item
+   
+- [ ]  The Manager group has the following access rights:
+    - [ ]  Can create/read/update/delete all patients records
+    - [ ]  Can create/read/update/delete departments
+    - [ ]  Can create/read/update/delete doctors
+    - [ ]  Can view doctor fields in patients form view
+    - [ ]  Can view doctors menu item
+   
+- [ ]  Create a patients report like the following design:
+- ![img.png](img.png)

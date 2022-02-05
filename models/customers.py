@@ -14,8 +14,6 @@ class HospitalCustomer(models.Model):
     related_patient_id = fields.One2many(comodel_name='hms.patient', inverse_name="department_id")
     patient_email = fields.Char(related="related_patient_id.email")
 
-
-
     @api.constrains('email')
     def _check_mail(self):
         is_found = self.env['hms.patient'].search([('email', '=', self.email)])

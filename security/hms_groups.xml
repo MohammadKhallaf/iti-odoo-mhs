@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--  creating category -->
+        <record model="ir.module.category" id="module_category_hms">
+            <field name="name">Hospital Management System</field>
+        </record>
+
+
+        <!--    Adding groups   -->
+        <record id="hms_user_group" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="module_category_hms"/>
+        </record>
+
+        <!--    manager implies users ...   -->
+        <record id="hms_manager_group" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="module_category_hms"/>
+            <!--    to inherit the user permissions     -->
+            <field name="implied_ids" eval="[(4, ref('hms_user_group'))]"/>
+        </record>
+
+    </data>
+
+    <!--        Rules -->
+    <data>
+                <record id="user_own_patient" model="ir.rule">
+                    <field name="name">User Patients</field>
+                    <field ref="model_hms_patient" name="model_id"/>
+                    <field name="domain_force">[('create_uid','=',user.id)]</field>
+                    <field name="groups" eval="[(4, ref('hms_user_group'))]"/>
+                </record>
+
+        <record id="maneger_rule_all" model="ir.rule">
+            <field name="name">Manager All Records</field>
+            <field ref="model_hms_patient" name="model_id"/>
+            <field name="domain_force">[('1','=',1)]</field>
+            <field name="groups" eval="[(4, ref('hms_manager_group'))]"/>
+        </record>
+    </data>
+
+</odoo>

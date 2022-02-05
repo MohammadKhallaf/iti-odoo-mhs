@@ -1,12 +1,14 @@
 {
     'name': 'Hospitals Management Software',
     'version': '1.0',
-    'category': 'Sales/Point of Sale',
+    'category': 'Hospital',
     'sequence': -100,
     'summary': 'Hospitals Management Software',
     'description': """Hospital Management Software""",
     'depends': ['base', 'crm'],
     'data': [
+        'security/hms_groups.xml',
+        'security/ir.model.access.csv',
         'views/patient.xml',
         'views/doctor.xml',
         'views/department.xml',

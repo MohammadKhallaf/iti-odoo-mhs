@@ -27,12 +27,12 @@ ___
     - [x]  Can't view doctor fields in patients' form view
     - [x]  Can't view doctors' menu item
    
-- [ ]  The Manager group has the following access rights:
+- [x]  The Manager group has the following access rights:
     - [x]  Can create/read/update/delete all patients records
     - [x]  Can create/read/update/delete departments
     - [x]  Can create/read/update/delete doctors
     - [x]  Can view doctor fields in patients form view
     - [x]  Can view doctors' menu item
    
-- [ ]  Create a patients report like the following design:
+- [x]  Create a patients report like the following design:
 - ![img.png](img.png)

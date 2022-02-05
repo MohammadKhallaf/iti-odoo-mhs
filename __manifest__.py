@@ -13,7 +13,9 @@
         'views/doctor.xml',
         'views/department.xml',
         'views/logs.xml',
-        'views/customers.xml'
+        'views/customers.xml',
+        'reports/report.xml',
+        'reports/template.xml'
     ],
     'installable': True,
     'application': True,

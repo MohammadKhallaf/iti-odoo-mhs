@@ -1,0 +1,151 @@
+<odoo>
+    <data>
+        <template id="hms_patient_pdf_template">
+            <t t-call="web.html_container">
+                <!--    for each record -->
+                <t t-foreach="docs" t-as="o">
+                    <!--    bootstrap classes-->
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h1>
+                                        Patient Info
+                                    </h1>
+                                </div>
+                                <div class="col-6">
+                                    <h1>
+                                        <img t-attf-src="data:image/*;base64,{{o.image}}"
+                                             style="max-height: 500px;max-width: 500px;padding:2px;" align="center"/>
+
+                                    </h1>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <table class="table">
+                                        <tr>
+                                            <td>
+                                                <strong>Name</strong>
+                                            </td>
+                                            <td>
+                                                <span t-field="o.firstname"/>
+                                                <span t-field="o.lastname"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Age</strong>
+                                            </td>
+                                            <td>
+                                                <span t-field="o.age"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Department</strong>
+                                            </td>
+                                            <td>
+                                                <span t-field="o.department_id.name"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Doctors</strong>
+                                            </td>
+                                            <td>
+                                                <t t-foreach="o.doctors_ids" t-as="d">
+                                                    <span t-esc="d.name"/>,
+                                                </t>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-6">
+                                    <table class="table">
+                                        <tr>
+                                            <td>
+                                                <strong>Birthdate</strong>
+                                            </td>
+                                            <td>
+                                                <span t-esc="o.birthdate.strftime('%Y-%m-%d')"/>
+
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>PCR</strong>
+                                            </td>
+                                            <td>
+                                                <span t-esc="o.pcr"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Blood Type</strong>
+                                            </td>
+                                            <td>
+                                                <span t-esc="o.blood_type"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Email</strong>
+                                            </td>
+                                            <td>
+                                                <span t-esc="o.email"/>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <td>
+                                                Created By
+                                            </td>
+                                            <td>
+                                                Date
+                                            </td>
+                                            <td>
+                                                Description
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <t t-foreach="o.log_ids" t-as="l">
+                                        <tr>
+                                            <td>
+                                                <span t-esc="l.created_by"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="l.date.strftime('%Y-%m-%d')"/>,
+                                            </td>
+                                            <td>
+                                                <span t-esc="l.description"/>
+                                            </td>
+
+
+                                        </tr>
+
+                                    </t>
+
+                                </table>
+
+
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

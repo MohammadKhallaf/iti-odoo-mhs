@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="logs_tree_view" model="ir.ui.view">
+            <field name="name">hms.logs.tree</field>
+            <field name="model">hms.logs</field>
+            <field name="arch" type="xml">
+                <tree string="Patient Logs">
+                    <field name="patient_id"/>
+                    <field name="created_by"/>
+                    <field name="description"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="doctor_form" model="ir.ui.view">
+            <field name="name">hms.doctor.form</field>
+            <field name="model">hms.doctor</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="firstname" reqiured="True"/>
+                                <field name="lastname" reqiured="True"/>
+                            </group>
+
+                            <group>
+                                <field name="image"/>
+                                <field name="patients_ids"/>
+                            </group>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <!--  a window action =>> to hold the app in the main menu -->
+        <record id="doctor_action" model="ir.actions.act_window">
+            <!-- action name -->
+            <field name="name">Doctors</field>
+            <field name="type">ir.actions.act_window</field>
+
+            <!-- the model you want to take the action -->
+            <field name="res_model">hms.doctor</field>
+
+            <!-- corresponding views' modes -->
+            <field name="view_mode">tree,kanban,form</field>
+
+
+        </record>
+
+        <menuitem id="hospital_root"
+                  name="Hospital"
+                  sequence="10"/>
+        <!--        creating sub menu for that main menu-->
+        <menuitem id="hospital_doctor_root"
+                  name="Doctors"
+                  parent="hospital_root"
+                  sequence="11"/>
+        <!-- a tab menu to get in patient -->
+        <menuitem id="hospital_doctor"
+                  name="Doctors"
+                  action="doctor_action"
+                  parent="hospital_doctor_root"
+                  sequence="1"/>
+    </data>
+
+</odoo>

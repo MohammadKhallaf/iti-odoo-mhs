@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="department_form" model="ir.ui.view">
+            <field name="name">hms.department.form</field>
+            <field name="model">hms.department</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="capacity"/>
+
+
+
+                            </group>
+
+                            <group>
+                                <field name="is_opened"/>
+                                <field name="patients_ids"/>
+
+                            </group>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <!--  a window action =>> to hold the app in the main menu -->
+        <record id="department_action" model="ir.actions.act_window">
+            <!-- action name -->
+            <field name="name">Departments</field>
+            <field name="type">ir.actions.act_window</field>
+
+            <!-- the model you want to take the action -->
+            <field name="res_model">hms.department</field>
+
+            <!-- corresponding views' modes -->
+            <field name="view_mode">tree,kanban,form</field>
+
+            <!-- a helping menu -->
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first patient !
+                </p>
+
+            </field>
+        </record>
+
+        <menuitem id="hospital_root"
+                  name="Hospital"
+                  sequence="10"/>
+        <!--        creating sub menu for that main menu-->
+        <menuitem id="hospital_department_root"
+                  name="Departments"
+                  parent="hospital_root"
+                  sequence="12"/>
+        <!-- a tab menu to get in patient -->
+        <menuitem id="hospital_department"
+                  name="Departments"
+                  action="department_action"
+                  parent="hospital_department_root"
+                  sequence="12"/>
+    </data>
+
+</odoo>

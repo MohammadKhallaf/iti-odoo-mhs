@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    inherit customers view from CRM => X_ID = base.res_partner_kanban_view -->
+    <!--    Partners Extension       -->
+
+    <record id="view_patient_customer_form" model="ir.ui.view">
+        <field name="name">res.partner.inherited</field>
+        <field name="model">res.partner</field>
+
+        <field name="inherit_id" ref="base.view_partner_form"/>
+
+        <field name="arch" type="xml">
+
+            <xpath expr="//group[@name='misc']" position="inside">
+                <field name="related_patient_id"/>
+
+            </xpath>
+            <!--            set tax id to mandatory-->
+            <xpath expr="//field[@name='vat']"
+                   position="attributes">
+                <attribute
+                        name="required">True
+                </attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_patient_customer_tree">
+        <field name="name">res.partner.tree.inherited</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <!--        add website link to the list view -->
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='email']" position="after">
+                <field name="website"/>
+
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

@@ -38,8 +38,10 @@ class HospitalPatient(models.Model):
 
     @api.depends('birthdate')
     def _compute_age(self):
-        if self.birthdate:
-            for item in self:
+        # self.birthdate can is not correct
+        # may be self have many items so can be give error to user
+        for item in self:
+            if item.birthdate:
                 if item.birthdate > date.today():
                     raise UserError("Birthdate Incorrect!")
                 item.age = date.today().year - item.birthdate.year
@@ -101,21 +103,19 @@ class HospitalPatient(models.Model):
 
     def other_state(self):
         self.state = 'other'
-        self.create_log()
 
     def good_state(self):
         self.state = 'good'
-        self.create_log()
 
     def fair_state(self):
         self.state = 'fair'
-        self.create_log()
 
     def serious_state(self):
         self.state = 'serious'
-        self.create_log()
 
     # @api.onchange('state') #=> not working
+    # we can use @api.constrains can work and delete function create_log from others button actions
+    @api.constrains('state')
     def create_log(self):
         if self.state:
             log = {

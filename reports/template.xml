@@ -22,6 +22,8 @@
                                 </div>
 
                             </div>
+                            <br/>
+                            <br/>
                             <div class="row">
                                 <div class="col-6">
                                     <table class="table">
@@ -63,6 +65,8 @@
                                         </tr>
                                     </table>
                                 </div>
+                                <br/>
+                                <br/>
                                 <div class="col-6">
                                     <table class="table">
                                         <tr>
@@ -71,8 +75,6 @@
                                             </td>
                                             <td>
                                                 <span t-esc="o.birthdate.strftime('%Y-%m-%d')"/>
-
-
                                             </td>
                                         </tr>
                                         <tr>
@@ -97,16 +99,14 @@
                                             </td>
                                             <td>
                                                 <span t-esc="o.email"/>
-
                                             </td>
                                         </tr>
                                     </table>
                                 </div>
-
                             </div>
-
+                            <br/><br/>
+                            <h3 class="text-center text-danger">Log History</h3>
                             <div class="row">
-
                                 <table class="table">
                                     <thead>
                                         <tr>
@@ -132,15 +132,9 @@
                                             <td>
                                                 <span t-esc="l.description"/>
                                             </td>
-
-
                                         </tr>
-
                                     </t>
-
                                 </table>
-
-
                             </div>
                         </div>
                     </t>
